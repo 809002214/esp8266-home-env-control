@@ -1,0 +1,38 @@
+name: 功能建议
+description: 提交新的功能想法、改进建议或产品化方向
+title: "[Feature] "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        欢迎提出改进建议。请尽量描述使用场景和预期收益。
+  - type: input
+    id: feature_name
+    attributes:
+      label: 功能名称
+      placeholder: 例如 OTA 在线升级、告警通知、历史曲线
+    validations:
+      required: true
+  - type: textarea
+    id: scenario
+    attributes:
+      label: 使用场景
+      description: 这个功能要解决什么问题
+      placeholder: 例如设备部署在多个房间，需要统一查看离线状态
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 你的建议方案
+      placeholder: 例如新增 MQTT 主题、增加 Node-RED 页面、补充固件能力
+    validations:
+      required: true
+  - type: textarea
+    id: extra
+    attributes:
+      label: 补充说明
+      description: 可附参考链接、截图、原型图等
+

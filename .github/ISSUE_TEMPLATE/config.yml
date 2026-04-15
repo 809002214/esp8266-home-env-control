@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 项目部署说明
+    url: https://github.com/809002214/esp8266-home-env-control/blob/main/docs/%E5%AE%B9%E5%99%A8%E9%83%A8%E7%BD%B2%E8%AF%B4%E6%98%8E.md
+    about: 遇到 Docker、权限、Node-RED 或 MQTT 问题时，先看这份说明
+  - name: 烧录与联调说明
+    url: https://github.com/809002214/esp8266-home-env-control/blob/main/docs/%E7%83%A7%E5%BD%95%E4%B8%8E%E8%81%94%E8%B0%83.md
+    about: 遇到固件烧录、配网、传感器和 OLED 问题时，先看这份说明

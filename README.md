@@ -7,6 +7,23 @@
 - GitHub 仓库名推荐：`esp8266-home-env-control`
 - 项目描述推荐：`基于 ESP8266、MQTT、Node-RED 和 OLED 的家庭温湿度监测与远程控制入门项目。`
 
+## 快速开始
+
+- 硬件接线先看：[接线说明.md](./docs/接线说明.md)
+- 面包板摆放参考：[面包板摆放接线图.md](./docs/面包板摆放接线图.md)
+- ESP8266 烧录步骤：[烧录与联调.md](./docs/烧录与联调.md)
+- N1 容器部署步骤：[容器部署说明.md](./docs/容器部署说明.md)
+- Node-RED 页面说明：[网页面板说明.md](./docs/网页面板说明.md)
+
+## 目录结构
+
+```text
+.
+├─ arduino/home_env_monitor/   ESP8266 固件
+├─ docker/                     Mosquitto + Node-RED 部署文件
+└─ docs/                       接线图、烧录、部署和页面说明
+```
+
 这是一个适合新手的家庭环境监测与远程控制项目，目标是：
 
 - `ESP8266 NodeMCU` 连接家里 Wi-Fi

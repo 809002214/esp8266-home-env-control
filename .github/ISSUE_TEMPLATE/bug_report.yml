@@ -1,0 +1,69 @@
+name: Bug 反馈
+description: 反馈项目使用过程中遇到的错误、异常或页面显示问题
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈问题。请尽量把硬件、日志和操作步骤写完整，这样更容易定位。
+  - type: input
+    id: environment
+    attributes:
+      label: 环境信息
+      description: 例如 ESP8266 / 斐讯 N1 / Armbian / Docker 版本
+      placeholder: 例如 NodeMCU V3、斐讯 N1、Armbian 24.x、Docker 26.x
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: 问题范围
+      options:
+        - 固件烧录
+        - MQTT 连接
+        - Node-RED 页面
+        - Docker 部署
+        - 接线与硬件
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 请按顺序写出你做了什么
+      placeholder: |
+        1. 烧录固件
+        2. 配置 Wi-Fi 和 MQTT
+        3. 启动 docker compose
+        4. 打开 dashboard 页面
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期结果
+      placeholder: 例如页面应该显示温湿度数据
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际结果
+      placeholder: 例如页面为空、Node-RED 报错、MQTT 无法连接
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: 日志或报错信息
+      description: 建议粘贴串口日志、docker compose logs、Node-RED 日志
+      render: shell
+  - type: textarea
+    id: extra
+    attributes:
+      label: 补充说明
+      description: 可附接线照片、截图、配置项等
+
