@@ -33,6 +33,10 @@ services:
       MQTT_PORT: 1883
       MQTT_USERNAME: mqtt
       MQTT_PASSWORD: 123456
+      NODE_RED_ENABLE_ADMIN_AUTH: "true"
+      NODE_RED_ADMIN_USERNAME: admin
+      NODE_RED_ADMIN_PASSWORD: 123456
+      NODE_RED_MAX_HTTP_BUFFER_SIZE: 8388608
       NODE_RED_CREDENTIAL_SECRET: change_this_secret
     volumes:
       # N1 上 Node-RED 的持久化目录，里面会保存 flows、node_modules 和本地缓存

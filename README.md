@@ -15,11 +15,29 @@
 - N1 容器部署步骤：[容器部署说明.md](./docs/容器部署说明.md)
 - Node-RED 页面说明：[网页面板说明.md](./docs/网页面板说明.md)
 
+## 默认账号与 OTA 发布
+
+- Node-RED 编辑器默认登录：`admin / 123456`
+- Dashboard 固件发布区支持：
+- `发布版本号`
+- `发布说明`
+- 上传 `.bin`
+- 下拉选择固件
+- 一键 `升级所选固件`
+
+上传后固件会按版本落到：
+
+- `docker/nodered/data/public/firmware/releases/<版本号>/<文件名>.bin`
+
 ## 目录结构
 
 ```text
 .
 ├─ arduino/home_env_monitor/   ESP8266 固件
+│  ├─ home_env_monitor.ino     主入口（全局配置、setup/loop）
+│  ├─ home_env_monitor_services.ino  服务函数模块（配网、MQTT、OTA、恢复策略）
+│  ├─ display_pages.h/.cpp     OLED 多页 UI 渲染模块
+│  └─ weather_state.h/.cpp     天气载荷解析模块
 ├─ docker/                     Mosquitto + Node-RED 部署文件
 └─ docs/                       接线图、烧录、部署和页面说明
 ```
@@ -83,7 +101,9 @@
 你能直接得到：
 
 - 实时温湿度显示
+- 最近 12 小时温湿度历史曲线
 - 开关按钮
+- OTA 在线升级入口
 - 设备状态页
 - 手机网页可访问
 - 后期自动化联动
@@ -318,7 +338,6 @@
 
 对于家庭使用，很实用的功能有：
 
-- 温湿度历史曲线
 - 设备在线/离线状态
 - Wi-Fi 信号强度
 - 开关当前状态回显

@@ -7,11 +7,14 @@ docker/homeassistant/config/tts/
 docker/homeassistant/config/www/
 docker/mqtt/data/
 docker/mqtt/log/
-docker/mqtt/config/passwd
 docker/nodered/data/node_modules/
 docker/nodered/data/lib/
 docker/nodered/data/.config.*
 docker/nodered/data/.sessions.json
 docker/nodered/data/flows_cred.json
 docker/nodered/data/flows.json.backup
+docker/nodered/data/public/firmware/catalog.json
+docker/nodered/data/public/firmware/releases/
+docker/nodered/data/public/firmware/*.bin
 .tmp_mqtt_hash/
+tmp_ffdash/

@@ -5,10 +5,14 @@ cd /data
 
 echo "Starting Node-RED bootstrap..."
 
-if [ ! -d /data/node_modules/@flowfuse/node-red-dashboard ]; then
+mkdir -p /data/public/firmware
+
+if [ ! -d /data/node_modules/@flowfuse/node-red-dashboard ] || [ ! -d /data/node_modules/bcryptjs ]; then
   echo "Installing FlowFuse Dashboard nodes..."
   npm install --unsafe-perm --no-update-notifier --no-fund --omit=dev
 fi
+
+mkdir -p /data/public/firmware/releases
 
 if [ ! -f /data/flows.json ]; then
   echo "Generating initial flows.json from template..."
