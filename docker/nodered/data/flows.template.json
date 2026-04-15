@@ -1,0 +1,724 @@
+[
+  {
+    "id": "flow_home_panel",
+    "type": "tab",
+    "label": "家庭智能面板",
+    "disabled": false,
+    "info": "ESP8266 温湿度与远程控制看板"
+  },
+  {
+    "id": "mqtt_broker_home",
+    "type": "mqtt-broker",
+    "name": "家庭 MQTT",
+    "broker": "__MQTT_BROKER__",
+    "port": "__MQTT_PORT__",
+    "clientid": "nodered-home-panel",
+    "autoConnect": true,
+    "usetls": false,
+    "protocolVersion": "4",
+    "keepalive": "60",
+    "cleansession": true,
+    "birthTopic": "nodered/home/status",
+    "birthQos": "0",
+    "birthPayload": "online",
+    "closeTopic": "nodered/home/status",
+    "closeQos": "0",
+    "closePayload": "offline",
+    "willTopic": "nodered/home/status",
+    "willQos": "0",
+    "willPayload": "offline",
+    "user": "__MQTT_USERNAME__",
+    "password": "__MQTT_PASSWORD__"
+  },
+  {
+    "id": "ui_base_main",
+    "type": "ui-base",
+    "name": "家庭智能面板",
+    "path": "/dashboard",
+    "appIcon": "home-thermometer-outline",
+    "includeClientData": true,
+    "acceptsClientConfig": [
+      "ui-notification",
+      "ui-control",
+      "ui-template",
+      "ui-text",
+      "ui-button"
+    ],
+    "showPathInSidebar": false,
+    "headerContent": "page",
+    "navigationStyle": "temporary",
+    "titleBarStyle": "default",
+    "showReconnectNotification": true,
+    "notificationDisplayTime": 3,
+    "showDisconnectNotification": true,
+    "allowInstall": false
+  },
+  {
+    "id": "ui_theme_main",
+    "type": "ui-theme",
+    "name": "暖白仪表盘",
+    "colors": {
+      "surface": "#fffaf5",
+      "primary": "#d56f3e",
+      "bgPage": "#f4efe8",
+      "groupBg": "#fffdf9",
+      "groupOutline": "#e3d8ca"
+    },
+    "sizes": {
+      "density": "compact",
+      "pagePadding": "16px",
+      "groupGap": "16px",
+      "groupBorderRadius": "18px",
+      "widgetGap": "12px"
+    }
+  },
+  {
+    "id": "ui_page_overview",
+    "type": "ui-page",
+    "name": "环境总览",
+    "ui": "ui_base_main",
+    "path": "/",
+    "icon": "home",
+    "layout": "grid",
+    "theme": "ui_theme_main",
+    "breakpoints": [
+      {
+        "name": "手机",
+        "px": "0",
+        "cols": "3"
+      },
+      {
+        "name": "平板",
+        "px": "576",
+        "cols": "6"
+      },
+      {
+        "name": "桌面",
+        "px": "1024",
+        "cols": "12"
+      }
+    ],
+    "order": 1,
+    "className": "",
+    "visible": "true",
+    "disabled": "false"
+  },
+  {
+    "id": "ui_group_live",
+    "type": "ui-group",
+    "name": "实时环境",
+    "page": "ui_page_overview",
+    "width": "6",
+    "height": "1",
+    "order": 1,
+    "showTitle": true,
+    "className": "",
+    "visible": "true",
+    "disabled": "false",
+    "groupType": "default"
+  },
+  {
+    "id": "ui_group_system",
+    "type": "ui-group",
+    "name": "设备状态",
+    "page": "ui_page_overview",
+    "width": "6",
+    "height": "1",
+    "order": 2,
+    "showTitle": true,
+    "className": "",
+    "visible": "true",
+    "disabled": "false",
+    "groupType": "default"
+  },
+  {
+    "id": "ui_group_control",
+    "type": "ui-group",
+    "name": "远程控制",
+    "page": "ui_page_overview",
+    "width": "12",
+    "height": "1",
+    "order": 3,
+    "showTitle": true,
+    "className": "",
+    "visible": "true",
+    "disabled": "false",
+    "groupType": "default"
+  },
+  {
+    "id": "ui_text_temperature",
+    "type": "ui-text",
+    "z": "flow_home_panel",
+    "group": "ui_group_live",
+    "name": "",
+    "label": "温度",
+    "order": 1,
+    "width": "3",
+    "height": "1",
+    "format": "{{msg.payload}}",
+    "layout": "col-center",
+    "style": true,
+    "fontSize": "28px",
+    "color": "#c75c32",
+    "className": "",
+    "x": 1250,
+    "y": 80,
+    "wires": []
+  },
+  {
+    "id": "ui_text_humidity",
+    "type": "ui-text",
+    "z": "flow_home_panel",
+    "group": "ui_group_live",
+    "name": "",
+    "label": "湿度",
+    "order": 2,
+    "width": "3",
+    "height": "1",
+    "format": "{{msg.payload}}",
+    "layout": "col-center",
+    "style": true,
+    "fontSize": "28px",
+    "color": "#2e7aa3",
+    "className": "",
+    "x": 1250,
+    "y": 140,
+    "wires": []
+  },
+  {
+    "id": "ui_text_status",
+    "type": "ui-text",
+    "z": "flow_home_panel",
+    "group": "ui_group_live",
+    "name": "",
+    "label": "在线状态",
+    "order": 3,
+    "width": "3",
+    "height": "1",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "style": true,
+    "fontSize": "18px",
+    "color": "#3f7d20",
+    "className": "",
+    "x": 1250,
+    "y": 200,
+    "wires": []
+  },
+  {
+    "id": "ui_text_switch_state",
+    "type": "ui-text",
+    "z": "flow_home_panel",
+    "group": "ui_group_live",
+    "name": "",
+    "label": "开关状态",
+    "order": 4,
+    "width": "3",
+    "height": "1",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "style": true,
+    "fontSize": "18px",
+    "color": "#7d5a20",
+    "className": "",
+    "x": 1260,
+    "y": 260,
+    "wires": []
+  },
+  {
+    "id": "ui_text_time",
+    "type": "ui-text",
+    "z": "flow_home_panel",
+    "group": "ui_group_system",
+    "name": "",
+    "label": "本地时间",
+    "order": 1,
+    "width": "6",
+    "height": "1",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "className": "",
+    "x": 1260,
+    "y": 440,
+    "wires": []
+  },
+  {
+    "id": "ui_text_wifi",
+    "type": "ui-text",
+    "z": "flow_home_panel",
+    "group": "ui_group_system",
+    "name": "",
+    "label": "WiFi 信号",
+    "order": 2,
+    "width": "3",
+    "height": "1",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "className": "",
+    "x": 1250,
+    "y": 500,
+    "wires": []
+  },
+  {
+    "id": "ui_text_uptime",
+    "type": "ui-text",
+    "z": "flow_home_panel",
+    "group": "ui_group_system",
+    "name": "",
+    "label": "运行时间",
+    "order": 3,
+    "width": "3",
+    "height": "1",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "className": "",
+    "x": 1260,
+    "y": 560,
+    "wires": []
+  },
+  {
+    "id": "ui_text_ip",
+    "type": "ui-text",
+    "z": "flow_home_panel",
+    "group": "ui_group_system",
+    "name": "",
+    "label": "设备 IP",
+    "order": 4,
+    "width": "6",
+    "height": "1",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "className": "",
+    "x": 1250,
+    "y": 620,
+    "wires": []
+  },
+  {
+    "id": "ui_text_error",
+    "type": "ui-text",
+    "z": "flow_home_panel",
+    "group": "ui_group_system",
+    "name": "",
+    "label": "最近错误",
+    "order": 5,
+    "width": "6",
+    "height": "1",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "style": true,
+    "fontSize": "15px",
+    "color": "#b44545",
+    "className": "",
+    "x": 1260,
+    "y": 680,
+    "wires": []
+  },
+  {
+    "id": "ui_text_firmware",
+    "type": "ui-text",
+    "z": "flow_home_panel",
+    "group": "ui_group_system",
+    "name": "",
+    "label": "固件版本",
+    "order": 6,
+    "width": "6",
+    "height": "1",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "className": "",
+    "x": 1270,
+    "y": 740,
+    "wires": []
+  },
+  {
+    "id": "btn_switch_on",
+    "type": "ui-button",
+    "z": "flow_home_panel",
+    "group": "ui_group_control",
+    "name": "",
+    "label": "打开开关",
+    "order": 1,
+    "width": "3",
+    "height": "1",
+    "passthru": false,
+    "tooltip": "发送 ON 到设备开关主题",
+    "color": "#ffffff",
+    "bgcolor": "#2e8b57",
+    "className": "",
+    "icon": "power",
+    "payload": "ON",
+    "payloadType": "str",
+    "topic": "home/room1/env01/switch/set",
+    "topicType": "str",
+    "x": 860,
+    "y": 900,
+    "wires": [
+      [
+        "mqtt_out_control"
+      ]
+    ]
+  },
+  {
+    "id": "btn_switch_off",
+    "type": "ui-button",
+    "z": "flow_home_panel",
+    "group": "ui_group_control",
+    "name": "",
+    "label": "关闭开关",
+    "order": 2,
+    "width": "3",
+    "height": "1",
+    "passthru": false,
+    "tooltip": "发送 OFF 到设备开关主题",
+    "color": "#ffffff",
+    "bgcolor": "#8b3a3a",
+    "className": "",
+    "icon": "power-off",
+    "payload": "OFF",
+    "payloadType": "str",
+    "topic": "home/room1/env01/switch/set",
+    "topicType": "str",
+    "x": 860,
+    "y": 960,
+    "wires": [
+      [
+        "mqtt_out_control"
+      ]
+    ]
+  },
+  {
+    "id": "btn_restart",
+    "type": "ui-button",
+    "z": "flow_home_panel",
+    "group": "ui_group_control",
+    "name": "",
+    "label": "重启设备",
+    "order": 3,
+    "width": "3",
+    "height": "1",
+    "passthru": false,
+    "tooltip": "发送 RESTART 到系统控制主题",
+    "color": "#ffffff",
+    "bgcolor": "#d58b2f",
+    "className": "",
+    "icon": "restart",
+    "payload": "RESTART",
+    "payloadType": "str",
+    "topic": "home/room1/env01/system/reset",
+    "topicType": "str",
+    "x": 860,
+    "y": 1020,
+    "wires": [
+      [
+        "mqtt_out_control"
+      ]
+    ]
+  },
+  {
+    "id": "btn_factory_reset",
+    "type": "ui-button",
+    "z": "flow_home_panel",
+    "group": "ui_group_control",
+    "name": "",
+    "label": "恢复出厂",
+    "order": 4,
+    "width": "3",
+    "height": "1",
+    "passthru": false,
+    "tooltip": "发送 RESET 到系统控制主题",
+    "color": "#ffffff",
+    "bgcolor": "#6b4bb3",
+    "className": "",
+    "icon": "restore",
+    "payload": "RESET",
+    "payloadType": "str",
+    "topic": "home/room1/env01/system/reset",
+    "topicType": "str",
+    "x": 860,
+    "y": 1080,
+    "wires": [
+      [
+        "mqtt_out_control"
+      ]
+    ]
+  },
+  {
+    "id": "mqtt_out_control",
+    "type": "mqtt out",
+    "z": "flow_home_panel",
+    "name": "发送控制命令",
+    "topic": "",
+    "qos": "1",
+    "retain": "",
+    "broker": "mqtt_broker_home",
+    "x": 1180,
+    "y": 990,
+    "wires": []
+  },
+  {
+    "id": "mqtt_in_temperature",
+    "type": "mqtt in",
+    "z": "flow_home_panel",
+    "name": "订阅温度",
+    "topic": "home/room1/env01/temperature",
+    "qos": "1",
+    "datatype": "auto-detect",
+    "broker": "mqtt_broker_home",
+    "nl": false,
+    "rap": true,
+    "rh": 1,
+    "inputs": 0,
+    "x": 150,
+    "y": 80,
+    "wires": [
+      [
+        "fn_temperature_text"
+      ]
+    ]
+  },
+  {
+    "id": "fn_temperature_text",
+    "type": "function",
+    "z": "flow_home_panel",
+    "name": "格式化温度",
+    "func": "var value = Number(msg.payload); msg.payload = Number.isFinite(value) ? (value.toFixed(1) + ' °C') : '--'; return msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 420,
+    "y": 80,
+    "wires": [
+      [
+        "ui_text_temperature"
+      ]
+    ]
+  },
+  {
+    "id": "mqtt_in_humidity",
+    "type": "mqtt in",
+    "z": "flow_home_panel",
+    "name": "订阅湿度",
+    "topic": "home/room1/env01/humidity",
+    "qos": "1",
+    "datatype": "auto-detect",
+    "broker": "mqtt_broker_home",
+    "nl": false,
+    "rap": true,
+    "rh": 1,
+    "inputs": 0,
+    "x": 150,
+    "y": 140,
+    "wires": [
+      [
+        "fn_humidity_text"
+      ]
+    ]
+  },
+  {
+    "id": "fn_humidity_text",
+    "type": "function",
+    "z": "flow_home_panel",
+    "name": "格式化湿度",
+    "func": "var value = Number(msg.payload); msg.payload = Number.isFinite(value) ? (value.toFixed(0) + ' %') : '--'; return msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 420,
+    "y": 140,
+    "wires": [
+      [
+        "ui_text_humidity"
+      ]
+    ]
+  },
+  {
+    "id": "mqtt_in_status",
+    "type": "mqtt in",
+    "z": "flow_home_panel",
+    "name": "订阅在线状态",
+    "topic": "home/room1/env01/status",
+    "qos": "1",
+    "datatype": "utf8",
+    "broker": "mqtt_broker_home",
+    "nl": false,
+    "rap": true,
+    "rh": 1,
+    "inputs": 0,
+    "x": 160,
+    "y": 200,
+    "wires": [
+      [
+        "fn_status_text"
+      ]
+    ]
+  },
+  {
+    "id": "fn_status_text",
+    "type": "function",
+    "z": "flow_home_panel",
+    "name": "格式化在线状态",
+    "func": "msg.payload = (msg.payload === 'online') ? '在线' : '离线'; return msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 430,
+    "y": 200,
+    "wires": [
+      [
+        "ui_text_status"
+      ]
+    ]
+  },
+  {
+    "id": "mqtt_in_switch_state",
+    "type": "mqtt in",
+    "z": "flow_home_panel",
+    "name": "订阅开关状态",
+    "topic": "home/room1/env01/switch/state",
+    "qos": "1",
+    "datatype": "utf8",
+    "broker": "mqtt_broker_home",
+    "nl": false,
+    "rap": true,
+    "rh": 1,
+    "inputs": 0,
+    "x": 160,
+    "y": 260,
+    "wires": [
+      [
+        "fn_switch_text"
+      ]
+    ]
+  },
+  {
+    "id": "fn_switch_text",
+    "type": "function",
+    "z": "flow_home_panel",
+    "name": "格式化开关状态",
+    "func": "msg.payload = (msg.payload === 'ON') ? '已打开' : '已关闭'; return msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 430,
+    "y": 260,
+    "wires": [
+      [
+        "ui_text_switch_state"
+      ]
+    ]
+  },
+  {
+    "id": "mqtt_in_system_state",
+    "type": "mqtt in",
+    "z": "flow_home_panel",
+    "name": "订阅系统状态",
+    "topic": "home/room1/env01/system/state",
+    "qos": "1",
+    "datatype": "json",
+    "broker": "mqtt_broker_home",
+    "nl": false,
+    "rap": true,
+    "rh": 1,
+    "inputs": 0,
+    "x": 160,
+    "y": 500,
+    "wires": [
+      [
+        "fn_split_system_state"
+      ]
+    ]
+  },
+  {
+    "id": "fn_split_system_state",
+    "type": "function",
+    "z": "flow_home_panel",
+    "name": "拆分系统状态",
+    "func": "var data = msg.payload || {}; var wifi = { payload: Number.isFinite(Number(data.wifi_rssi)) ? (String(data.wifi_rssi) + ' dBm') : '--' }; var uptimeSec = Number(data.uptime_sec || 0); var uptimeHour = (uptimeSec / 3600).toFixed(1); var uptime = { payload: uptimeHour + ' 小时' }; var ip = { payload: data.ip || '--' }; var timeText = data.local_time ? (data.local_time + (data.time_synced ? '' : ' (校时中)')) : '时间同步中'; var time = { payload: timeText }; var error = { payload: data.last_error || 'OK' }; return [wifi, uptime, ip, time, error];",
+    "outputs": 5,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 430,
+    "y": 500,
+    "wires": [
+      [
+        "ui_text_wifi"
+      ],
+      [
+        "ui_text_uptime"
+      ],
+      [
+        "ui_text_ip"
+      ],
+      [
+        "ui_text_time"
+      ],
+      [
+        "ui_text_error"
+      ]
+    ]
+  },
+  {
+    "id": "mqtt_in_device_info",
+    "type": "mqtt in",
+    "z": "flow_home_panel",
+    "name": "订阅设备信息",
+    "topic": "home/room1/env01/device/info",
+    "qos": "1",
+    "datatype": "json",
+    "broker": "mqtt_broker_home",
+    "nl": false,
+    "rap": true,
+    "rh": 1,
+    "inputs": 0,
+    "x": 160,
+    "y": 740,
+    "wires": [
+      [
+        "fn_firmware_text"
+      ]
+    ]
+  },
+  {
+    "id": "fn_firmware_text",
+    "type": "function",
+    "z": "flow_home_panel",
+    "name": "格式化固件版本",
+    "func": "var data = msg.payload || {}; var version = data.firmware_version || '--'; var model = data.model || 'ESP8266_ENV_MONITOR'; msg.payload = model + ' / ' + version; return msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 430,
+    "y": 740,
+    "wires": [
+      [
+        "ui_text_firmware"
+      ]
+    ]
+  },
+  {
+    "id": "global_config_dashboard",
+    "type": "global-config",
+    "env": [],
+    "modules": {
+      "@flowfuse/node-red-dashboard": "latest"
+    }
+  }
+]

@@ -1,0 +1,41 @@
+services:
+  mqtt:
+    image: eclipse-mosquitto:2
+    restart: unless-stopped
+    environment:
+      TZ: Asia/Shanghai
+    ports:
+      # MQTT TCP 端口，ESP8266 设备连接这个端口上报和接收命令
+      - "1883:1883"
+      # MQTT WebSocket 端口，后面如果网页要直接连 MQTT 可以用这个端口
+      - "1884:9001"
+    volumes:
+      - /sddata/docker/mqtt/config:/mosquitto/config
+      - /sddata/docker/mqtt/data:/mosquitto/data
+      - /sddata/docker/mqtt/log:/mosquitto/log
+
+  nodered:
+    image: nodered/node-red:latest
+    restart: unless-stopped
+    depends_on:
+      - mqtt
+    # 这里先用 root 运行，减少 N1 上挂载目录权限导致的启动失败。
+    user: "0:0"
+    # 先用高权限模式把项目跑通，后面稳定后可以再收紧权限。
+    privileged: true
+    ports:
+      # Node-RED 编辑器和 Dashboard 网页入口端口
+      - "1880:1880"
+    environment:
+      TZ: Asia/Shanghai
+      FLOWS: flows.json
+      MQTT_BROKER: mqtt
+      MQTT_PORT: 1883
+      MQTT_USERNAME: mqtt
+      MQTT_PASSWORD: 123456
+      NODE_RED_CREDENTIAL_SECRET: change_this_secret
+    volumes:
+      # N1 上 Node-RED 的持久化目录，里面会保存 flows、node_modules 和本地缓存
+      - /sddata/docker/nodered/data:/data
+      - /etc/localtime:/etc/localtime:ro
+    entrypoint: ["/bin/sh", "/data/start.sh"]

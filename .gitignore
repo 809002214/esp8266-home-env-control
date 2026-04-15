@@ -1,0 +1,17 @@
+docker/homeassistant/config/.storage/
+docker/homeassistant/config/home-assistant.log
+docker/homeassistant/config/home-assistant_v2.db
+docker/homeassistant/config/backups/
+docker/homeassistant/config/deps/
+docker/homeassistant/config/tts/
+docker/homeassistant/config/www/
+docker/mqtt/data/
+docker/mqtt/log/
+docker/mqtt/config/passwd
+docker/nodered/data/node_modules/
+docker/nodered/data/lib/
+docker/nodered/data/.config.*
+docker/nodered/data/.sessions.json
+docker/nodered/data/flows_cred.json
+docker/nodered/data/flows.json.backup
+.tmp_mqtt_hash/

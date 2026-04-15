@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1120" viewBox="0 0 1600 1120">
+  <defs>
+    <style>
+      .title { font: 700 30px 'Segoe UI', Arial, sans-serif; fill: #1f2937; }
+      .subtitle { font: 18px 'Segoe UI', Arial, sans-serif; fill: #334155; }
+      .label { font: 18px 'Segoe UI', Arial, sans-serif; fill: #111827; }
+      .small { font: 15px 'Segoe UI', Arial, sans-serif; fill: #334155; }
+      .tiny { font: 13px 'Segoe UI', Arial, sans-serif; fill: #475569; }
+      .pin { font: 15px 'Consolas', 'Courier New', monospace; fill: #111827; }
+      .board { fill: #f8fafc; stroke: #334155; stroke-width: 2; rx: 18; ry: 18; }
+      .module { fill: #ffffff; stroke: #475569; stroke-width: 2; rx: 14; ry: 14; }
+      .note { fill: #fff7ed; stroke: #ea580c; stroke-width: 2; rx: 12; ry: 12; }
+      .power { stroke: #dc2626; stroke-width: 4; fill: none; }
+      .gnd { stroke: #111827; stroke-width: 4; fill: none; }
+      .spi_clk { stroke: #2563eb; stroke-width: 4; fill: none; }
+      .spi_mosi { stroke: #0ea5e9; stroke-width: 4; fill: none; }
+      .spi_res { stroke: #f97316; stroke-width: 4; fill: none; }
+      .spi_dc { stroke: #8b5cf6; stroke-width: 4; fill: none; }
+      .spi_cs { stroke: #ec4899; stroke-width: 4; fill: none; }
+      .ds { stroke: #16a34a; stroke-width: 4; fill: none; }
+      .dht { stroke: #7c3aed; stroke-width: 4; fill: none; }
+      .relay { stroke: #d97706; stroke-width: 4; fill: none; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="1120" fill="#f1f5f9" />
+
+  <text x="60" y="60" class="title">ESP8266 家庭环境模块完整接线图</text>
+  <text x="60" y="95" class="subtitle">已按你实际模块核对：OLED 是 7 针 SPI 版，不是 I2C 版。图中线条已分层，尽量避免重叠。</text>
+
+  <rect x="60" y="140" width="430" height="760" class="board" />
+  <text x="95" y="185" class="title" style="font-size:26px;">NodeMCU V3</text>
+  <text x="95" y="215" class="small">ESP8266 / CH340</text>
+
+  <rect x="105" y="255" width="340" height="600" fill="#e2e8f0" stroke="#475569" stroke-width="2" rx="20" ry="20" />
+  <text x="220" y="292" class="small">开发板正面</text>
+
+  <rect x="130" y="320" width="95" height="34" fill="#ffffff" stroke="#475569" />
+  <text x="148" y="342" class="pin">3V3</text>
+  <rect x="130" y="370" width="95" height="34" fill="#ffffff" stroke="#475569" />
+  <text x="152" y="392" class="pin">GND</text>
+  <rect x="130" y="420" width="95" height="34" fill="#ffffff" stroke="#475569" />
+  <text x="156" y="442" class="pin">D0</text>
+  <rect x="130" y="470" width="95" height="34" fill="#ffffff" stroke="#475569" />
+  <text x="156" y="492" class="pin">D1</text>
+  <rect x="130" y="520" width="95" height="34" fill="#ffffff" stroke="#475569" />
+  <text x="156" y="542" class="pin">D2</text>
+  <rect x="130" y="570" width="95" height="34" fill="#ffffff" stroke="#475569" />
+  <text x="156" y="592" class="pin">D3</text>
+  <rect x="130" y="620" width="95" height="34" fill="#ffffff" stroke="#475569" />
+  <text x="156" y="642" class="pin">D4</text>
+  <rect x="130" y="670" width="95" height="34" fill="#ffffff" stroke="#475569" />
+  <text x="156" y="692" class="pin">D5</text>
+  <rect x="130" y="720" width="95" height="34" fill="#ffffff" stroke="#475569" />
+  <text x="156" y="742" class="pin">D6</text>
+  <rect x="130" y="770" width="95" height="34" fill="#ffffff" stroke="#475569" />
+  <text x="156" y="792" class="pin">D7</text>
+
+  <text x="250" y="342" class="small">3.3V 电源</text>
+  <text x="250" y="392" class="small">公共地线</text>
+  <text x="250" y="442" class="small">OLED RES / GPIO16</text>
+  <text x="250" y="492" class="small">OLED D0(SCLK) / GPIO5</text>
+  <text x="250" y="542" class="small">OLED D1(MOSI) / GPIO4</text>
+  <text x="250" y="592" class="small">OLED DC / GPIO0</text>
+  <text x="250" y="642" class="small">OLED CS / GPIO2</text>
+  <text x="250" y="692" class="small">DS18B20 DATA / GPIO14</text>
+  <text x="250" y="742" class="small">DHT11 DATA / GPIO12</text>
+  <text x="250" y="792" class="small">继电器控制 / GPIO13</text>
+
+  <rect x="610" y="140" width="360" height="270" class="module" />
+  <text x="645" y="180" class="title" style="font-size:24px;">OLED 0.96 7 针 SPI</text>
+  <text x="645" y="208" class="small">按你发来的商品图：CS / DC / RES / D1 / D0 / VCC / GND</text>
+  <text x="645" y="248" class="pin">GND -&gt; GND</text>
+  <text x="645" y="278" class="pin">VCC -&gt; 3V3</text>
+  <text x="645" y="308" class="pin">D0  -&gt; D1  (SPI 时钟)</text>
+  <text x="645" y="338" class="pin">D1  -&gt; D2  (SPI 数据)</text>
+  <text x="645" y="368" class="pin">RES -&gt; D0</text>
+  <text x="645" y="398" class="pin">DC  -&gt; D3</text>
+  <text x="645" y="428" class="pin">CS  -&gt; D4</text>
+
+  <rect x="1060" y="170" width="420" height="220" class="note" />
+  <text x="1090" y="208" class="label">OLED 特别提醒</text>
+  <text x="1090" y="240" class="small">1. 这块屏不是 I2C 接法，要按 SPI 接。</text>
+  <text x="1090" y="270" class="small">2. D3 / D4 属于启动相关脚，接线别短路。</text>
+  <text x="1090" y="300" class="small">3. 上电黑屏时，先别怀疑线序，先改代码成 SPI 驱动。</text>
+  <text x="1090" y="330" class="small">4. VCC 建议先接 3V3，不要直接上 5V。</text>
+
+  <rect x="610" y="490" width="360" height="230" class="module" />
+  <text x="645" y="530" class="title" style="font-size:24px;">DS18B20 裸管</text>
+  <text x="645" y="558" class="small">平面朝自己、引脚朝下时：左 GND，中 DQ，右 VDD</text>
+  <text x="645" y="598" class="pin">GND -&gt; GND</text>
+  <text x="645" y="628" class="pin">DQ  -&gt; D5</text>
+  <text x="645" y="658" class="pin">VDD -&gt; 3V3</text>
+  <text x="645" y="694" class="small">DQ 与 3V3 之间必须加 4.7k 上拉电阻</text>
+
+  <rect x="1060" y="470" width="360" height="180" class="module" />
+  <text x="1095" y="510" class="title" style="font-size:24px;">DHT11 模块</text>
+  <text x="1095" y="540" class="small">按你发来的模块图：GND / DATA / VCC</text>
+  <text x="1095" y="580" class="pin">GND  -&gt; GND</text>
+  <text x="1095" y="610" class="pin">DATA -&gt; D6</text>
+  <text x="1095" y="640" class="pin">VCC  -&gt; 3V3</text>
+
+  <rect x="1060" y="740" width="360" height="170" class="module" />
+  <text x="1095" y="780" class="title" style="font-size:24px;">继电器模块（后续）</text>
+  <text x="1095" y="808" class="small">现在可以先不接，后面再扩展</text>
+  <text x="1095" y="848" class="pin">IN  -&gt; D7</text>
+  <text x="1095" y="878" class="pin">GND -&gt; GND</text>
+  <text x="1095" y="908" class="pin">VCC -&gt; 模块要求电压</text>
+
+  <rect x="610" y="780" width="360" height="160" class="note" />
+  <text x="640" y="818" class="label">共地与安全</text>
+  <text x="640" y="848" class="small">1. 所有模块 GND 必须连在一起。</text>
+  <text x="640" y="878" class="small">2. DS18B20 没有 4.7k 电阻时，大概率读数异常。</text>
+  <text x="640" y="908" class="small">3. ESP8266 引脚不能直接带 220V 负载。</text>
+
+  <!-- Power routes -->
+  <path d="M225 337 L520 337 L520 280 L645 280" class="power" />
+  <path d="M225 337 L540 337 L540 660 L645 660" class="power" />
+  <path d="M225 337 L560 337 L560 640 L1095 640" class="power" />
+
+  <!-- Ground routes -->
+  <path d="M225 387 L500 387 L500 250 L645 250" class="gnd" />
+  <path d="M225 387 L520 387 L520 600 L645 600" class="gnd" />
+  <path d="M225 387 L540 387 L540 580 L1095 580" class="gnd" />
+  <path d="M225 387 L560 387 L560 878 L1095 878" class="gnd" />
+
+  <!-- OLED SPI routes, each on its own layer -->
+  <path d="M225 437 L460 437 L460 730 L590 730 L590 370 L645 370" class="spi_res" />
+  <path d="M225 487 L440 487 L440 750 L580 750 L580 310 L645 310" class="spi_clk" />
+  <path d="M225 537 L420 537 L420 770 L570 770 L570 340 L645 340" class="spi_mosi" />
+  <path d="M225 587 L400 587 L400 790 L560 790 L560 400 L645 400" class="spi_dc" />
+  <path d="M225 637 L380 637 L380 810 L550 810 L550 430 L645 430" class="spi_cs" />
+
+  <!-- Sensor/control routes -->
+  <path d="M225 687 L470 687 L470 628 L645 628" class="ds" />
+  <path d="M225 737 L980 737 L980 610 L1095 610" class="dht" />
+  <path d="M225 787 L980 787 L980 848 L1095 848" class="relay" />
+
+  <!-- DS18B20 pull-up resistor -->
+  <path d="M470 628 L470 560 L820 560 L820 337" class="ds" />
+  <rect x="770" y="540" width="82" height="38" fill="#ffffff" stroke="#16a34a" stroke-width="2" rx="8" ry="8" />
+  <text x="788" y="565" class="pin" style="font-size:14px;">4.7k</text>
+  <text x="735" y="520" class="tiny">DQ 到 3V3 上拉</text>
+
+  <!-- Pin dots -->
+  <circle cx="225" cy="337" r="6" fill="#dc2626" />
+  <circle cx="225" cy="387" r="6" fill="#111827" />
+  <circle cx="225" cy="437" r="6" fill="#f97316" />
+  <circle cx="225" cy="487" r="6" fill="#2563eb" />
+  <circle cx="225" cy="537" r="6" fill="#0ea5e9" />
+  <circle cx="225" cy="587" r="6" fill="#8b5cf6" />
+  <circle cx="225" cy="637" r="6" fill="#ec4899" />
+  <circle cx="225" cy="687" r="6" fill="#16a34a" />
+  <circle cx="225" cy="737" r="6" fill="#7c3aed" />
+  <circle cx="225" cy="787" r="6" fill="#d97706" />
+
+  <!-- Legend -->
+  <rect x="60" y="975" width="1480" height="90" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" rx="14" ry="14" />
+  <line x1="90" y1="1015" x2="145" y2="1015" class="power" />
+  <text x="158" y="1021" class="small">红色：3V3 电源</text>
+  <line x1="300" y1="1015" x2="355" y2="1015" class="gnd" />
+  <text x="368" y="1021" class="small">黑色：GND</text>
+  <line x1="470" y1="1015" x2="525" y2="1015" class="spi_clk" />
+  <text x="538" y="1021" class="small">深蓝：OLED 时钟 D0</text>
+  <line x1="700" y1="1015" x2="755" y2="1015" class="spi_mosi" />
+  <text x="768" y="1021" class="small">浅蓝：OLED 数据 D1</text>
+  <line x1="950" y1="1015" x2="1005" y2="1015" class="spi_res" />
+  <text x="1018" y="1021" class="small">橙色：OLED RES</text>
+  <line x1="1190" y1="1015" x2="1245" y2="1015" class="spi_dc" />
+  <text x="1258" y="1021" class="small">紫色：OLED DC</text>
+  <line x1="90" y1="1048" x2="145" y2="1048" class="spi_cs" />
+  <text x="158" y="1054" class="small">粉色：OLED CS</text>
+  <line x1="300" y1="1048" x2="355" y2="1048" class="ds" />
+  <text x="368" y="1054" class="small">绿色：DS18B20 数据</text>
+  <line x1="560" y1="1048" x2="615" y2="1048" class="dht" />
+  <text x="628" y="1054" class="small">紫蓝：DHT11 数据</text>
+  <line x1="820" y1="1048" x2="875" y2="1048" class="relay" />
+  <text x="888" y="1054" class="small">金色：继电器控制</text>
+</svg>

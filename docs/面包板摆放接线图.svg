@@ -1,0 +1,310 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1180" viewBox="0 0 1700 1180">
+  <defs>
+    <style>
+      .title { font: 700 30px 'Segoe UI', Arial, sans-serif; fill: #1f2937; }
+      .subtitle { font: 18px 'Segoe UI', Arial, sans-serif; fill: #334155; }
+      .label { font: 18px 'Segoe UI', Arial, sans-serif; fill: #111827; }
+      .small { font: 14px 'Segoe UI', Arial, sans-serif; fill: #334155; }
+      .tiny { font: 12px 'Segoe UI', Arial, sans-serif; fill: #475569; }
+      .pin { font: 14px 'Consolas', 'Courier New', monospace; fill: #111827; }
+      .breadboard { fill: #fffef9; stroke: #94a3b8; stroke-width: 2; rx: 16; ry: 16; }
+      .board { fill: #e0f2fe; stroke: #0f172a; stroke-width: 2; rx: 14; ry: 14; }
+      .module { fill: #ffffff; stroke: #475569; stroke-width: 2; rx: 12; ry: 12; }
+      .note { fill: #fff7ed; stroke: #ea580c; stroke-width: 2; rx: 12; ry: 12; }
+      .powerrail { stroke: #dc2626; stroke-width: 5; fill: none; }
+      .groundrail { stroke: #111827; stroke-width: 5; fill: none; }
+      .power { stroke: #dc2626; stroke-width: 4; fill: none; }
+      .gnd { stroke: #111827; stroke-width: 4; fill: none; }
+      .spi_clk { stroke: #2563eb; stroke-width: 4; fill: none; }
+      .spi_mosi { stroke: #0ea5e9; stroke-width: 4; fill: none; }
+      .spi_res { stroke: #f97316; stroke-width: 4; fill: none; }
+      .spi_dc { stroke: #8b5cf6; stroke-width: 4; fill: none; }
+      .spi_cs { stroke: #ec4899; stroke-width: 4; fill: none; }
+      .ds { stroke: #16a34a; stroke-width: 4; fill: none; }
+      .dht { stroke: #7c3aed; stroke-width: 4; fill: none; }
+      .relay { stroke: #d97706; stroke-width: 4; fill: none; }
+      .hole { fill: #cbd5e1; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1700" height="1180" fill="#f1f5f9" />
+
+  <text x="60" y="60" class="title">面包板摆放接线图</text>
+  <text x="60" y="95" class="subtitle">按你现在这 4 个模块和 SPI OLED 实际接法绘制，尽量按“照着摆、照着插”的方式表达。</text>
+
+  <!-- Breadboard -->
+  <rect x="90" y="150" width="1140" height="820" class="breadboard" />
+  <path d="M130 220 L1190 220" class="powerrail" />
+  <path d="M130 260 L1190 260" class="groundrail" />
+  <path d="M130 860 L1190 860" class="powerrail" />
+  <path d="M130 900 L1190 900" class="groundrail" />
+  <text x="95" y="225" class="tiny" fill="#dc2626">+ 3V3 电源排</text>
+  <text x="95" y="265" class="tiny">- GND 地线排</text>
+  <text x="95" y="865" class="tiny" fill="#dc2626">+ 备用电源排</text>
+  <text x="95" y="905" class="tiny">- 备用地线排</text>
+
+  <!-- simple hole grid -->
+  <g opacity="0.55">
+    <circle cx="190" cy="340" r="4" class="hole" />
+    <circle cx="230" cy="340" r="4" class="hole" />
+    <circle cx="270" cy="340" r="4" class="hole" />
+    <circle cx="310" cy="340" r="4" class="hole" />
+    <circle cx="350" cy="340" r="4" class="hole" />
+    <circle cx="390" cy="340" r="4" class="hole" />
+    <circle cx="430" cy="340" r="4" class="hole" />
+    <circle cx="470" cy="340" r="4" class="hole" />
+    <circle cx="510" cy="340" r="4" class="hole" />
+    <circle cx="550" cy="340" r="4" class="hole" />
+    <circle cx="590" cy="340" r="4" class="hole" />
+    <circle cx="630" cy="340" r="4" class="hole" />
+    <circle cx="670" cy="340" r="4" class="hole" />
+    <circle cx="710" cy="340" r="4" class="hole" />
+    <circle cx="750" cy="340" r="4" class="hole" />
+    <circle cx="790" cy="340" r="4" class="hole" />
+    <circle cx="830" cy="340" r="4" class="hole" />
+    <circle cx="870" cy="340" r="4" class="hole" />
+    <circle cx="910" cy="340" r="4" class="hole" />
+    <circle cx="950" cy="340" r="4" class="hole" />
+    <circle cx="990" cy="340" r="4" class="hole" />
+    <circle cx="1030" cy="340" r="4" class="hole" />
+    <circle cx="1070" cy="340" r="4" class="hole" />
+    <circle cx="1110" cy="340" r="4" class="hole" />
+    <circle cx="190" cy="410" r="4" class="hole" />
+    <circle cx="230" cy="410" r="4" class="hole" />
+    <circle cx="270" cy="410" r="4" class="hole" />
+    <circle cx="310" cy="410" r="4" class="hole" />
+    <circle cx="350" cy="410" r="4" class="hole" />
+    <circle cx="390" cy="410" r="4" class="hole" />
+    <circle cx="430" cy="410" r="4" class="hole" />
+    <circle cx="470" cy="410" r="4" class="hole" />
+    <circle cx="510" cy="410" r="4" class="hole" />
+    <circle cx="550" cy="410" r="4" class="hole" />
+    <circle cx="590" cy="410" r="4" class="hole" />
+    <circle cx="630" cy="410" r="4" class="hole" />
+    <circle cx="670" cy="410" r="4" class="hole" />
+    <circle cx="710" cy="410" r="4" class="hole" />
+    <circle cx="750" cy="410" r="4" class="hole" />
+    <circle cx="790" cy="410" r="4" class="hole" />
+    <circle cx="830" cy="410" r="4" class="hole" />
+    <circle cx="870" cy="410" r="4" class="hole" />
+    <circle cx="910" cy="410" r="4" class="hole" />
+    <circle cx="950" cy="410" r="4" class="hole" />
+    <circle cx="990" cy="410" r="4" class="hole" />
+    <circle cx="1030" cy="410" r="4" class="hole" />
+    <circle cx="1070" cy="410" r="4" class="hole" />
+    <circle cx="1110" cy="410" r="4" class="hole" />
+    <circle cx="190" cy="480" r="4" class="hole" />
+    <circle cx="230" cy="480" r="4" class="hole" />
+    <circle cx="270" cy="480" r="4" class="hole" />
+    <circle cx="310" cy="480" r="4" class="hole" />
+    <circle cx="350" cy="480" r="4" class="hole" />
+    <circle cx="390" cy="480" r="4" class="hole" />
+    <circle cx="430" cy="480" r="4" class="hole" />
+    <circle cx="470" cy="480" r="4" class="hole" />
+    <circle cx="510" cy="480" r="4" class="hole" />
+    <circle cx="550" cy="480" r="4" class="hole" />
+    <circle cx="590" cy="480" r="4" class="hole" />
+    <circle cx="630" cy="480" r="4" class="hole" />
+    <circle cx="670" cy="480" r="4" class="hole" />
+    <circle cx="710" cy="480" r="4" class="hole" />
+    <circle cx="750" cy="480" r="4" class="hole" />
+    <circle cx="790" cy="480" r="4" class="hole" />
+    <circle cx="830" cy="480" r="4" class="hole" />
+    <circle cx="870" cy="480" r="4" class="hole" />
+    <circle cx="910" cy="480" r="4" class="hole" />
+    <circle cx="950" cy="480" r="4" class="hole" />
+    <circle cx="990" cy="480" r="4" class="hole" />
+    <circle cx="1030" cy="480" r="4" class="hole" />
+    <circle cx="1070" cy="480" r="4" class="hole" />
+    <circle cx="1110" cy="480" r="4" class="hole" />
+    <circle cx="190" cy="550" r="4" class="hole" />
+    <circle cx="230" cy="550" r="4" class="hole" />
+    <circle cx="270" cy="550" r="4" class="hole" />
+    <circle cx="310" cy="550" r="4" class="hole" />
+    <circle cx="350" cy="550" r="4" class="hole" />
+    <circle cx="390" cy="550" r="4" class="hole" />
+    <circle cx="430" cy="550" r="4" class="hole" />
+    <circle cx="470" cy="550" r="4" class="hole" />
+    <circle cx="510" cy="550" r="4" class="hole" />
+    <circle cx="550" cy="550" r="4" class="hole" />
+    <circle cx="590" cy="550" r="4" class="hole" />
+    <circle cx="630" cy="550" r="4" class="hole" />
+    <circle cx="670" cy="550" r="4" class="hole" />
+    <circle cx="710" cy="550" r="4" class="hole" />
+    <circle cx="750" cy="550" r="4" class="hole" />
+    <circle cx="790" cy="550" r="4" class="hole" />
+    <circle cx="830" cy="550" r="4" class="hole" />
+    <circle cx="870" cy="550" r="4" class="hole" />
+    <circle cx="910" cy="550" r="4" class="hole" />
+    <circle cx="950" cy="550" r="4" class="hole" />
+    <circle cx="990" cy="550" r="4" class="hole" />
+    <circle cx="1030" cy="550" r="4" class="hole" />
+    <circle cx="1070" cy="550" r="4" class="hole" />
+    <circle cx="1110" cy="550" r="4" class="hole" />
+    <circle cx="190" cy="620" r="4" class="hole" />
+    <circle cx="230" cy="620" r="4" class="hole" />
+    <circle cx="270" cy="620" r="4" class="hole" />
+    <circle cx="310" cy="620" r="4" class="hole" />
+    <circle cx="350" cy="620" r="4" class="hole" />
+    <circle cx="390" cy="620" r="4" class="hole" />
+    <circle cx="430" cy="620" r="4" class="hole" />
+    <circle cx="470" cy="620" r="4" class="hole" />
+    <circle cx="510" cy="620" r="4" class="hole" />
+    <circle cx="550" cy="620" r="4" class="hole" />
+    <circle cx="590" cy="620" r="4" class="hole" />
+    <circle cx="630" cy="620" r="4" class="hole" />
+    <circle cx="670" cy="620" r="4" class="hole" />
+    <circle cx="710" cy="620" r="4" class="hole" />
+    <circle cx="750" cy="620" r="4" class="hole" />
+    <circle cx="790" cy="620" r="4" class="hole" />
+    <circle cx="830" cy="620" r="4" class="hole" />
+    <circle cx="870" cy="620" r="4" class="hole" />
+    <circle cx="910" cy="620" r="4" class="hole" />
+    <circle cx="950" cy="620" r="4" class="hole" />
+    <circle cx="990" cy="620" r="4" class="hole" />
+    <circle cx="1030" cy="620" r="4" class="hole" />
+    <circle cx="1070" cy="620" r="4" class="hole" />
+    <circle cx="1110" cy="620" r="4" class="hole" />
+  </g>
+
+  <!-- NodeMCU placement -->
+  <rect x="170" y="310" width="210" height="520" class="board" />
+  <text x="200" y="345" class="label">NodeMCU V3</text>
+  <text x="205" y="370" class="small">插在面包板左侧</text>
+  <rect x="195" y="400" width="70" height="24" fill="#ffffff" stroke="#475569" />
+  <text x="210" y="417" class="pin">3V3</text>
+  <rect x="195" y="440" width="70" height="24" fill="#ffffff" stroke="#475569" />
+  <text x="214" y="457" class="pin">G</text>
+  <rect x="195" y="480" width="70" height="24" fill="#ffffff" stroke="#475569" />
+  <text x="212" y="497" class="pin">D0</text>
+  <rect x="195" y="520" width="70" height="24" fill="#ffffff" stroke="#475569" />
+  <text x="212" y="537" class="pin">D1</text>
+  <rect x="195" y="560" width="70" height="24" fill="#ffffff" stroke="#475569" />
+  <text x="212" y="577" class="pin">D2</text>
+  <rect x="195" y="600" width="70" height="24" fill="#ffffff" stroke="#475569" />
+  <text x="212" y="617" class="pin">D3</text>
+  <rect x="195" y="640" width="70" height="24" fill="#ffffff" stroke="#475569" />
+  <text x="212" y="657" class="pin">D4</text>
+  <rect x="195" y="680" width="70" height="24" fill="#ffffff" stroke="#475569" />
+  <text x="212" y="697" class="pin">D5</text>
+  <rect x="195" y="720" width="70" height="24" fill="#ffffff" stroke="#475569" />
+  <text x="212" y="737" class="pin">D6</text>
+  <rect x="195" y="760" width="70" height="24" fill="#ffffff" stroke="#475569" />
+  <text x="212" y="777" class="pin">D7</text>
+  <text x="290" y="417" class="small">接上电源排</text>
+  <text x="290" y="457" class="small">接下地线排</text>
+  <text x="290" y="497" class="small">OLED RES</text>
+  <text x="290" y="537" class="small">OLED D0 时钟</text>
+  <text x="290" y="577" class="small">OLED D1 数据</text>
+  <text x="290" y="617" class="small">OLED DC</text>
+  <text x="290" y="657" class="small">OLED CS</text>
+  <text x="290" y="697" class="small">DS18B20 DQ</text>
+  <text x="290" y="737" class="small">DHT11 DATA</text>
+  <text x="290" y="777" class="small">继电器预留</text>
+
+  <!-- OLED placement -->
+  <rect x="520" y="300" width="300" height="170" class="module" />
+  <text x="545" y="335" class="label">OLED 7 针 SPI 屏</text>
+  <text x="545" y="360" class="small">建议摆在面包板右上角</text>
+  <rect x="545" y="385" width="225" height="50" fill="#111827" rx="8" ry="8" />
+  <text x="625" y="415" class="small" fill="#ffffff">SSD1306 128x64</text>
+  <text x="540" y="455" class="pin">排针从左到右：GND VCC D0 D1 RES DC CS</text>
+
+  <!-- DHT11 placement -->
+  <rect x="930" y="330" width="220" height="130" class="module" />
+  <text x="955" y="365" class="label">DHT11 模块</text>
+  <text x="955" y="390" class="small">插在右中区域</text>
+  <text x="955" y="425" class="pin">GND / DATA / VCC</text>
+
+  <!-- DS18B20 placement -->
+  <rect x="640" y="560" width="260" height="170" class="module" />
+  <text x="665" y="595" class="label">DS18B20 裸管</text>
+  <text x="665" y="620" class="small">平面朝自己，引脚朝下</text>
+  <text x="665" y="650" class="pin">左 GND / 中 DQ / 右 VDD</text>
+  <text x="665" y="680" class="small">中间 DQ 和 3V3 之间加 4.7k 电阻</text>
+
+  <!-- Relay placeholder -->
+  <rect x="940" y="610" width="230" height="140" class="module" />
+  <text x="965" y="645" class="label">继电器模块（后续）</text>
+  <text x="965" y="675" class="small">现在可以不插</text>
+  <text x="965" y="705" class="pin">IN -> D7</text>
+
+  <!-- notes -->
+  <rect x="1280" y="170" width="360" height="300" class="note" />
+  <text x="1310" y="208" class="label">摆放建议</text>
+  <text x="1310" y="240" class="small">1. NodeMCU 放左边，USB 朝下。</text>
+  <text x="1310" y="270" class="small">2. OLED 放右上，方便多根杜邦线分开走。</text>
+  <text x="1310" y="300" class="small">3. DHT11 放右侧中间，DATA 单独回 D6。</text>
+  <text x="1310" y="330" class="small">4. DS18B20 放中下部，旁边直接放 4.7k 电阻。</text>
+  <text x="1310" y="360" class="small">5. 所有模块先共用上面电源排和地线排。</text>
+  <text x="1310" y="390" class="small">6. D3/D4 是启动脚，OLED 线别插错。</text>
+  <text x="1310" y="420" class="small">7. 这张图是摆放版，逻辑对应总览图。</text>
+
+  <rect x="1280" y="530" width="360" height="220" class="note" />
+  <text x="1310" y="568" class="label">一定要注意</text>
+  <text x="1310" y="600" class="small">1. DS18B20 必须加 4.7k 上拉。</text>
+  <text x="1310" y="630" class="small">2. OLED 这块是 SPI，不是 I2C。</text>
+  <text x="1310" y="660" class="small">3. 电源先统一用 3V3，不要混 5V。</text>
+  <text x="1310" y="690" class="small">4. 上电前先再核对一遍 GND 是否共地。</text>
+  <text x="1310" y="720" class="small">5. 继电器后面再加，先跑通显示和上传。</text>
+
+  <!-- power from NodeMCU to rails -->
+  <path d="M265 412 L150 412 L150 220" class="power" />
+  <path d="M265 452 L170 452 L170 260" class="gnd" />
+
+  <!-- OLED wires from rails and NodeMCU -->
+  <path d="M820 395 L920 395 L920 220" class="power" />
+  <path d="M820 385 L890 385 L890 260" class="gnd" />
+  <path d="M265 532 L455 532 L455 405 L540 405" class="spi_clk" />
+  <path d="M265 572 L435 572 L435 417 L540 417" class="spi_mosi" />
+  <path d="M265 492 L415 492 L415 429 L540 429" class="spi_res" />
+  <path d="M265 612 L395 612 L395 441 L540 441" class="spi_dc" />
+  <path d="M265 652 L375 652 L375 453 L540 453" class="spi_cs" />
+
+  <!-- DHT11 wires -->
+  <path d="M1040 425 L1040 220" class="power" />
+  <path d="M975 425 L975 260" class="gnd" />
+  <path d="M265 732 L900 732 L900 425 L1010 425" class="dht" />
+
+  <!-- DS18B20 wires -->
+  <path d="M850 650 L850 220" class="power" />
+  <path d="M700 650 L700 260" class="gnd" />
+  <path d="M265 692 L560 692 L560 650 L775 650" class="ds" />
+
+  <!-- pull-up resistor -->
+  <rect x="745" y="590" width="70" height="34" fill="#ffffff" stroke="#16a34a" stroke-width="2" rx="6" ry="6" />
+  <text x="760" y="612" class="pin" style="font-size:13px;">4.7k</text>
+  <path d="M780 624 L780 650" class="ds" />
+  <path d="M780 590 L780 220" class="ds" />
+  <text x="690" y="580" class="tiny">DQ 到 3V3 上拉</text>
+
+  <!-- relay placeholder wire -->
+  <path d="M265 772 L900 772 L900 705 L965 705" class="relay" />
+
+  <!-- labels on rails -->
+  <text x="1120" y="213" class="tiny" fill="#dc2626">面包板上电源排都接 3V3</text>
+  <text x="1120" y="254" class="tiny">面包板地线排都接 GND</text>
+
+  <!-- legend -->
+  <rect x="90" y="1015" width="1550" height="110" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" rx="14" ry="14" />
+  <line x1="120" y1="1050" x2="180" y2="1050" class="power" />
+  <text x="195" y="1056" class="small">红色：3V3</text>
+  <line x1="310" y1="1050" x2="370" y2="1050" class="gnd" />
+  <text x="385" y="1056" class="small">黑色：GND</text>
+  <line x1="500" y1="1050" x2="560" y2="1050" class="spi_clk" />
+  <text x="575" y="1056" class="small">深蓝：OLED D0 时钟</text>
+  <line x1="760" y1="1050" x2="820" y2="1050" class="spi_mosi" />
+  <text x="835" y="1056" class="small">浅蓝：OLED D1 数据</text>
+  <line x1="1035" y1="1050" x2="1095" y2="1050" class="spi_res" />
+  <text x="1110" y="1056" class="small">橙色：OLED RES</text>
+  <line x1="1300" y1="1050" x2="1360" y2="1050" class="spi_dc" />
+  <text x="1375" y="1056" class="small">紫色：OLED DC</text>
+  <line x1="120" y1="1088" x2="180" y2="1088" class="spi_cs" />
+  <text x="195" y="1094" class="small">粉色：OLED CS</text>
+  <line x1="390" y1="1088" x2="450" y2="1088" class="ds" />
+  <text x="465" y="1094" class="small">绿色：DS18B20 DQ</text>
+  <line x1="685" y1="1088" x2="745" y2="1088" class="dht" />
+  <text x="760" y="1094" class="small">紫蓝：DHT11 DATA</text>
+  <line x1="995" y1="1088" x2="1055" y2="1088" class="relay" />
+  <text x="1070" y="1094" class="small">金色：继电器 IN 预留</text>
+</svg>

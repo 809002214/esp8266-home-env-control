@@ -1,0 +1,9 @@
+{
+  "name": "home-esp8266-node-red",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ESP8266 家庭智能模块 Node-RED 面板",
+  "dependencies": {
+    "@flowfuse/node-red-dashboard": "latest"
+  }
+}

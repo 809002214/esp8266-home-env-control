@@ -1,0 +1,33 @@
+Install these libraries from Arduino IDE Library Manager:
+
+- WiFiManager by tzapu
+  作用：给 ESP8266 提供“手机连热点后网页配网”的功能。
+  本项目用途：首次配置家里 Wi-Fi、MQTT 地址、设备名，以及恢复出厂入口。
+
+- PubSubClient by Nick O'Leary
+  作用：让 ESP8266 能连接 MQTT Broker，并进行发布/订阅。
+  本项目用途：上报温度、湿度、设备状态，接收远程开关、重启、恢复出厂命令。
+
+- Adafruit GFX Library by Adafruit
+  作用：图形显示基础库，负责文字、线条、图形等通用绘制能力。
+  本项目用途：作为 OLED 显示的底层绘图库。
+
+- Adafruit SSD1306 by Adafruit
+  作用：SSD1306 芯片 OLED 屏驱动库。
+  本项目用途：驱动 0.96 寸 OLED，把温湿度、Wi-Fi、MQTT、错误状态显示出来。
+
+- OneWire by Paul Stoffregen
+  作用：实现 OneWire 单总线通信协议。
+  本项目用途：让 ESP8266 能和 DS18B20 温度传感器通信。
+
+- DallasTemperature by Miles Burton
+  作用：基于 OneWire，对 DS18B20 等 Dallas 温度传感器做更高层封装。
+  本项目用途：读取 DS18B20 温度值，不用自己处理底层温度转换细节。
+
+- DHT sensor library by Adafruit
+  作用：读取 DHT11、DHT22 这类温湿度传感器。
+  本项目用途：读取 DHT11 的湿度值，以及参考温度值。
+
+- Adafruit Unified Sensor by Adafruit
+  作用：Adafruit 统一传感器接口基础库，给部分传感器库提供公共数据结构。
+  本项目用途：作为 DHT 传感器库的依赖库一起安装。
